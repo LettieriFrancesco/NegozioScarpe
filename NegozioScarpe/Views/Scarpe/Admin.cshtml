@@ -1,0 +1,53 @@
+﻿@model IEnumerable<NegozioScarpe.Models.Articolo>
+
+@{
+    ViewBag.Title = "Admin";
+    int widthImage = 80;
+}
+
+
+<h2>Admin</h2>
+
+<p>
+    @Html.ActionLink("Crea Prodotto", "Create", "Scarpe", "", new {@class= "btn btn-warning"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeArticolo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrezzoArticolo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescrizioneArticolo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImmagineCopertina)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeArticolo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrezzoArticolo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescrizioneArticolo)
+        </td>
+        <td>
+            <img style="width:@(widthImage)px;" src="~/Content/ImmaginiProgetto/@item.ImmagineCopertina" />
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,31 @@
+﻿@model List<NegozioScarpe.Models.Articolo>
+@{
+    ViewBag.Title = "Index";
+}
+@if (TempData["MessaggioDiConferma"] != null)
+            {
+                <div class="alert alert-success">
+                    @TempData["MessaggioDiConferma"]
+                </div>
+            }
+<h2>Index</h2>
+<div class="container-fluid">
+    <div class="row gy-3">
+
+        @foreach (NegozioScarpe.Models.Articolo a in Model)
+        {
+            <div class="col col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="~/Content/ImmaginiProgetto/@a.ImmagineCopertina" class="card-img-top" alt="imgCard">
+                    <div class="card-body">
+                        <h5 class="card-title">@a.NomeArticolo</h5>
+                        <p class="card-text">€@a.PrezzoArticolo</p>
+                        @Html.ActionLink("Dettagli Prodotto", "Details", "Scarpe", new {id=a.Id}, new {@class = "btn btn-warning"})
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+

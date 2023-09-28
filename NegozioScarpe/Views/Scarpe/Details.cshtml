@@ -1,0 +1,24 @@
+﻿@model NegozioScarpe.Models.Articolo
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <div class="mb-3">
+                <img id="immCopertina" src="~/Content/ImmaginiProgetto/@Model.ImmagineCopertina" />
+            </div>
+            <img src="~/Content/ImmaginiProgetto/@Model.Immagine1" />
+            <img src="~/Content/ImmaginiProgetto/@Model.Immagine2" />
+        </div>
+        <div class="col-4">
+            <h2 class="text-decoration-underline">@Model.NomeArticolo</h2>
+            <h4>@Model.DescrizioneArticolo</h4>
+            <p class="fs-5">€@Model.PrezzoArticolo</p>
+            @Html.ActionLink("Modifica", "Edit", "Scarpe", new {@Model.Id }, new { @class = "btn btn-warning" })
+        </div>
+    </div>
+</div>
